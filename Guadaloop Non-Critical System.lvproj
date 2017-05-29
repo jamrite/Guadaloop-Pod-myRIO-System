@@ -273,10 +273,10 @@ AddOutputFilter chunkFilter
 		<Property Name="target.IsRemotePanelSupported" Type="Bool">true</Property>
 		<Property Name="target.RTCPULoadMonitoringEnabled" Type="Bool">true</Property>
 		<Property Name="target.RTDebugWebServerHTTPPort" Type="UInt">8001</Property>
-		<Property Name="target.RTTarget.ApplicationPath" Type="Path">/c/ni-rt/startup/startup.rtexe</Property>
+		<Property Name="target.RTTarget.ApplicationPath" Type="Path">/home/lvuser/natinst/bin/startup.rtexe</Property>
 		<Property Name="target.RTTarget.EnableFileSharing" Type="Bool">true</Property>
 		<Property Name="target.RTTarget.IPAccess" Type="Str">+*</Property>
-		<Property Name="target.RTTarget.LaunchAppAtBoot" Type="Bool">false</Property>
+		<Property Name="target.RTTarget.LaunchAppAtBoot" Type="Bool">true</Property>
 		<Property Name="target.RTTarget.VIPath" Type="Path">/home/lvuser/natinst/bin</Property>
 		<Property Name="target.server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="target.server.control.propertiesEnabled" Type="Bool">true</Property>
@@ -341,9 +341,13 @@ DirectoryIndex index.htm
 		<Item Name="Type Defs" Type="Folder" URL="../Type Defs">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
+		<Item Name="Levitation Startup.vi" Type="VI" URL="../../../../Desktop/Levitation Startup.vi"/>
 		<Item Name="myRIO Main v2.vi" Type="VI" URL="../myRIO Main v2.vi"/>
 		<Item Name="myRIO_CriticalMainTest.vi" Type="VI" URL="../myRIO_CriticalMainTest.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
+			<Item Name="user.lib" Type="Folder">
+				<Item Name="Boolean Trigger__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/boolean/boolean.llb/Boolean Trigger__ogtk.vi"/>
+			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Accelerometer Channels Enum.ctl" Type="VI" URL="/&lt;vilib&gt;/myRIO/Common/Instrument Driver Framework/myRIO v1.0/Accelerometer/typedefs/Accelerometer Channels Enum.ctl"/>
 				<Item Name="Accelerometer Channels List.ctl" Type="VI" URL="/&lt;vilib&gt;/myRIO/Common/Instrument Driver Framework/myRIO v1.0/Accelerometer/typedefs/Accelerometer Channels List.ctl"/>
@@ -485,11 +489,18 @@ DirectoryIndex index.htm
 				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
-			<Item Name="BMP180 Config Options.ctl" Type="VI" URL="../Sensors/BMP180/BMP180 Config Options.ctl"/>
+			<Item Name="ADS1015 Init.vi" Type="VI" URL="../Sensors/ADC - Adafruit ADS1015/ADS1015 Init.vi"/>
+			<Item Name="ADS1015 Read.vi" Type="VI" URL="../Sensors/ADC - Adafruit ADS1015/ADS1015 Read.vi"/>
 			<Item Name="BMP180 Config Options.ctl" Type="VI" URL="../Tools/Sensors/BMP180/BMP180 Config Options.ctl"/>
+			<Item Name="BMP180 Init.vi" Type="VI" URL="../Sensors/Pressure Sensor - BMP180/BMP180 Init.vi"/>
+			<Item Name="BMP180 Read.vi" Type="VI" URL="../Sensors/Pressure Sensor - BMP180/BMP180 Read.vi"/>
 			<Item Name="Definition.ctl" Type="VI" URL="../Tools/Type Defs/Definition.ctl"/>
+			<Item Name="IMU Control.ctl" Type="VI" URL="../Sensors/IMU - Adafruit BNO055/IMU Control.ctl"/>
+			<Item Name="INA219 Init &amp; Config.vi" Type="VI" URL="../Sensors/Power Sensor - Adafruit INA219/INA219 Init &amp; Config.vi"/>
 			<Item Name="INA219 Init &amp; Config.vi" Type="VI" URL="../Tools/Sensors/Adafruit INA219/INA219 Init &amp; Config.vi"/>
+			<Item Name="INA219 Measurements.ctl" Type="VI" URL="../Sensors/Power Sensor - Adafruit INA219/INA219 Measurements.ctl"/>
 			<Item Name="INA219 Measurements.ctl" Type="VI" URL="../Tools/Sensors/Adafruit INA219/INA219 Measurements.ctl"/>
+			<Item Name="INA219 Read Measurements.vi" Type="VI" URL="../Sensors/Power Sensor - Adafruit INA219/INA219 Read Measurements.vi"/>
 			<Item Name="INA219 Read Measurements.vi" Type="VI" URL="../Tools/Sensors/Adafruit INA219/INA219 Read Measurements.vi"/>
 			<Item Name="liblinxdevice.dll" Type="Document" URL="liblinxdevice.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -504,7 +515,9 @@ DirectoryIndex index.htm
 			<Item Name="PodHealth.ctl" Type="VI" URL="../Tools/Type Defs/PodHealth.ctl"/>
 			<Item Name="PodHealthConfig.ctl" Type="VI" URL="../Tools/Type Defs/PodHealthConfig.ctl"/>
 			<Item Name="Telemetry.ctl" Type="VI" URL="../Tools/Type Defs/Telemetry.ctl"/>
+			<Item Name="TMP007 Init.vi" Type="VI" URL="../Sensors/Thermopile - Adafruit TMP007/TMP007 Init.vi"/>
 			<Item Name="TMP007 Init.vi" Type="VI" URL="../Tools/Sensors/Adafruit TMP007/TMP007 Init.vi"/>
+			<Item Name="TMP007 Read.vi" Type="VI" URL="../Sensors/Thermopile - Adafruit TMP007/TMP007 Read.vi"/>
 			<Item Name="TMP007 Read.vi" Type="VI" URL="../Tools/Sensors/Adafruit TMP007/TMP007 Read.vi"/>
 			<Item Name="VL6180 GetDistance.vi" Type="VI" URL="../Tools/SubVIs/VL6180 GetDistance.vi"/>
 			<Item Name="VL6180 GetRegister.vi" Type="VI" URL="../Tools/SubVIs/VL6180 GetRegister.vi"/>
@@ -514,6 +527,49 @@ DirectoryIndex index.htm
 			<Item Name="VL6180X DEFS.ctl" Type="VI" URL="../Tools/Sensors/VL6180/VL6180X DEFS.ctl"/>
 			<Item Name="VL6180X DEFS.ctl" Type="VI" URL="../Tools/Type Defs/VL6180X DEFS.ctl"/>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="My Real-Time Application" Type="{69A947D5-514E-4E75-818E-69657C0547D8}">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{D5C7E93B-227E-40D5-B8FA-2A9F95287C37}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{D74549B3-4307-42E1-9CE1-92A3D8C94D48}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{5ED4482F-6ED6-4781-9714-F2C7A869C34D}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">My Real-Time Application</Property>
+				<Property Name="Bld_compilerOptLevel" Type="Int">0</Property>
+				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/NI_AB_TARGETNAME/My Real-Time Application</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{20C816C1-7F7C-4AAC-8A5D-68C2FAAA9E5A}</Property>
+				<Property Name="Bld_targetDestDir" Type="Path">/home/lvuser/natinst/bin</Property>
+				<Property Name="Bld_version.build" Type="Int">2</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Destination[0].destName" Type="Str">startup.rtexe</Property>
+				<Property Name="Destination[0].path" Type="Path">/home/lvuser/natinst/bin/startup.rtexe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">/home/lvuser/natinst/bin/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Source[0].itemID" Type="Str">{ED80E171-6AC1-49A7-B268-3F07A5F737C2}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/NI-myRIO-1900-03035fe3 192.168.43.40/Levitation Startup.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">My Real-Time Application</Property>
+				<Property Name="TgtF_internalName" Type="Str">My Real-Time Application</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2017 </Property>
+				<Property Name="TgtF_productName" Type="Str">My Real-Time Application</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{EA9CEA69-84BD-4923-817F-BAD308B14B2F}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">startup.rtexe</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>
